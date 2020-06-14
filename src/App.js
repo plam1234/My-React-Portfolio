@@ -1,16 +1,20 @@
-import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Home from "./pages/home";
+import React, { useState, useEffect } from "react";
+import Pages from "./pages";
 
-class App extends Component {
-  render() {
-    return (
-      <Router>
-        <Switch>
-          <Route exact path={["/", "/home"]} component={Home} />
-        </Switch>
-      </Router>
-    );
+function App() {
+  const [user, setUser] = useState(null);
+  useEffect(() => {
+    // Note: Use your username below
+    fetch("https://gitconnected.com/v1/portfolio/plam1234")
+      .then((res) => res.json())
+      .then((user) => {
+        setUser(user);
+      });
+  }, []);
+
+  if (!user) {
+    return <div />;
   }
+  return <Pages user={user} />;
 }
 export default App;
