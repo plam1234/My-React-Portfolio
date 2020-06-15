@@ -1,65 +1,64 @@
 import React from "react";
 import Hero from "../components/Hero";
 import Content from "../components/Content";
-import Button from "react-bootstrap/Button";
-import axios from "axios";
+// import Button from "react-bootstrap/Button";
+// import axios from "axios";
 
-import Form from "react-bootstrap/Form";
+// import Form from "react-bootstrap/Form";
 
-class ContactPage extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      name: "",
-      email: "",
-      message: "",
-      disabled: false,
-      emailSent: null,
-    };
-  }
-  handleChange = (event) => {
-    const target = event.target;
-    const value = target.type === "checkbox" ? target.checked : target.value;
-    const name = target.name;
+function ContactPage(props) {
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     name: "",
+  //     email: "",
+  //     message: "",
+  //     disabled: false,
+  //     emailSent: null,
+  //   };
+  // }
+  // handleChange = (event) => {
+  //   const target = event.target;
+  //   const value = target.type === "checkbox" ? target.checked : target.value;
+  //   const name = target.name;
 
-    this.setState({
-      [name]: value,
-    });
-  };
+  //   this.setState({
+  //     [name]: value,
+  //   });
+  // };
 
-  handlSubmit = (event) => {
-    event.preventDefault();
-    this.setState({
-      disabled: true,
-    });
+  // handlSubmit = (event) => {
+  //   event.preventDefault();
+  //   this.setState({
+  //     disabled: true,
+  //   });
 
-    axios
-      .post("http://localhost:3030/api/email", this.state)
-      .then((res) => {
-        if (res.data.success) {
-          this.setState({
-            disabled: false,
-            emailSent: true,
-          });
-        } else {
-          this.setState({
-            disabled: false,
-            emailSent: false,
-          });
-        }
-      })
-      .catch((err) => {
-        this.setState({
-          disabled: false,
-          emailSent: false,
-        });
-      });
-  };
+  //   axios
+  //     .post("http://localhost:3030/api/email", this.state)
+  //     .then((res) => {
+  //       if (res.data.success) {
+  //         this.setState({
+  //           disabled: false,
+  //           emailSent: true,
+  //         });
+  //       } else {
+  //         this.setState({
+  //           disabled: false,
+  //           emailSent: false,
+  //         });
+  //       }
+  //     })
+  //     .catch((err) => {
+  //       this.setState({
+  //         disabled: false,
+  //         emailSent: false,
+  //       });
+  //     });
+  // };
 
-  render() {
-    return (
-      <div>
-        <Hero title={this.props.title} />
+  return (
+    <div>
+      {/* <Hero title={this.props.title} />
         <Content>
           <Form onSubmit={this.handlSubmit}>
             <Form.Group>
@@ -112,10 +111,17 @@ class ContactPage extends React.Component {
               <p className="d-inline err-msg">Email has failed Send!</p>
             )}
           </Form>
-        </Content>
-      </div>
-    );
-  }
+        </Content> */}
+      <Hero title={props.title} />
+      <Content>
+        <p>Peter Lam</p>
+        <p>Phone: 917-698-6592</p>
+        <p>Email: Piitaa1234@gmail.com </p>
+
+        <p>I will get back to you as soon as possible!</p>
+      </Content>
+    </div>
+  );
 }
 
 export default ContactPage;
