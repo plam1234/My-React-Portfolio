@@ -22,14 +22,14 @@ class App extends React.Component {
       ],
       home: {
         title: "Full-Stack Developer",
-        subTitle: "JavaScript / Node / React",
+        subTitle: "JavaScript / Node / React / Express / MongoDB / Passport",
         text: "Checkout my Projects below",
       },
       about: {
         title: "About me",
       },
       contact: {
-        title: "Contact Me!",
+        title: "Contact Me",
       },
     };
   }
